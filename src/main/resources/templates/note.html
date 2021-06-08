@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>NOTE</title>
+</head>
+
+<body>
+	<th:block th:insert="home :: header"></th:block>
+
+	<form action="/note" method="post">
+		<p>Title:</p>
+		<input name="Title"> <br>
+		<p>Content:</p>
+		<textarea name="Content"></textarea>
+		<br> <br> <input type="submit" value="Submit">
+	</form>
+
+</body>
+
+</html>

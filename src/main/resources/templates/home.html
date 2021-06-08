@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body >
+	<div th:fragment="header"
+	style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
+
+	<a th:href="@{/}" style="text-decoration: none">Home | &nbsp;</a> <a
+		th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
+		style="text-decoration: none">Logout | &nbsp;</a> <a
+		th:if="${#request.userPrincipal == null}" th:href="@{/login}"
+		style="text-decoration: none">Login | &nbsp;</a> <a
+		th:if="${#request.userPrincipal == null}" th:href="@{/register}"
+		style="text-decoration: none">Register | &nbsp;</a> <a
+		th:href="@{/note}" style="text-decoration: none">Note | &nbsp;</a> <a
+		th:href="@{/listNote}" style="text-decoration: none">takeNote | &nbsp;</a>
+        
+ 
+	<table th:if="${#request.userPrincipal != null}"
+		th:object="${listUser}">
+		
+		<tr th:each="user : ${listUser}">
+			<td th:utext="${user.id}">...</td>
+			<td th:utext="${user.username}">...</td>
+			<td th:utext="${user.role}">...</td>
+			<td th:utext="${user.enabled}">...</td>
+		</tr>
+	</table>
+
+</div>
+</body>
+</html>

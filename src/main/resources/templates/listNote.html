@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register</title>
+</head>
+
+<body>
+	<th:block th:insert="home::header "></th:block>
+	
+<div >
+<table border="1" th:if="${#request.userPrincipal != null}"
+		th:object="${listNote}">
+		<tr th:each="note : ${listNote}">
+			<td th:utext="${note.user.username}">...</td>
+			<td th:utext="${note.title}">...</td>
+			<td th:utext="${note.content}">...</td>
+			<td th:utext="${note.dateCreated}">...</td> 
+		</tr>
+	</table> <br>
+</div>	
+<form action="/note/search" method="get">
+       Title search:
+		<input type="Search" name="Search">  <br>
+		<button type="submit">Search</button> 
+</form> <br>
+
+<form action="/note/filter" method="get">
+         Filter user:
+		<input type="Filter" name="Filter"> <br>
+		<button type="submit">Filter</button>
+</form>
+ 
+</body>
+
+</html>

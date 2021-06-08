@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Register</title>
+</head>
+
+<body>
+	<th:block th:insert="home :: header"></th:block>
+	
+	<form action="/j_spring_security_check" method="POST" th:object="${user}">
+		Username:
+		<input placeholder="username" name="username"> <br> <br>
+		PassWord:
+		<input type="password" placeholder="password" name="password"> <br> <br>
+		<input type="submit">
+		<div th:if="${#request.getParameter('error') == 'true'}"  style="color:red">!!!Mật khẩu sai !!!</div>
+	</form>
+	
+</body>
+
+</html>
